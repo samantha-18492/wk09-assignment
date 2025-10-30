@@ -2,6 +2,7 @@ import CompanyDetails from "@/app/components/CompanyDetails";
 import { db } from "@/app/utils/utilities";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 export default async function Page({ params }) {
   const { id } = await params;
@@ -10,6 +11,10 @@ export default async function Page({ params }) {
   const company = (
     await db.query(`SELECT * FROM companies WHERE id = $1`, [id])
   ).rows[0];
+
+  if (!company) {
+    notFound();
+  }
 
   const reviews = (
     await db.query(
