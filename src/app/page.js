@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
+    <div className="text-center">
       <p>A word to the wise before you apply</p>
       <SignUpButton />
       <SignInButton />
