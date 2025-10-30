@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { db } from "@/app/utils/utilities.js";
 import UserSignUpForm from "../components/UserSignUpForm";
 import Link from "next/link";
+import UserReviews from "../components/UserReviews";
 
 export default async function Page() {
   const { isAuthenticated, redirectToSignIn, userId } = await auth();
@@ -26,12 +27,12 @@ export default async function Page() {
 
   return (
     <div>
-      <div>
-        <h2>User profile</h2>
-        <p>{userInfo.username}</p>
-        <p>{userInfo.bio}</p>
-      </div>
+      <h2>User profile</h2>
+      <p>{userInfo.username}</p>
+      <p>{userInfo.bio}</p>
+      <p>{userInfo.clerk_id}</p>
       <Link href="/users/edit">Edit your profile</Link>
+      <UserReviews userId={userInfo.id} />
     </div>
   );
 }
