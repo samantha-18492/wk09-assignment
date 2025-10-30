@@ -5,6 +5,8 @@ import UserSignUpForm from "@/app/components/UserSignUpForm";
 export default async function Page() {
   const { userId, redirectToSignIn } = await auth();
 
+  if (!userId) redirectToSignIn();
+
   const user = (
     await db.query(
       `SELECT username, bio FROM user_accounts WHERE clerk_id = $1`,
