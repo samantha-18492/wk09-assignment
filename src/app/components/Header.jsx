@@ -18,6 +18,7 @@ export default function Header() {
           <SignUpButton />
         </SignedOut>
         <SignedIn>
+          <Link href="/companies">Companies</Link>
           <UserButton />
         </SignedIn>
         <Link href="/users">Account</Link>
