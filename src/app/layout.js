@@ -14,14 +14,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={`antialiased`}>
           <Header />
-          <div
-            className="flex
-          text-center
-          justify-center
-          min-h-screen"
-          >
-            {children}
-          </div>
+          <div className="flex justify-center min-h-screen">{children}</div>
         </body>
       </html>
     </ClerkProvider>
