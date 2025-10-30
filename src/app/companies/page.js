@@ -10,7 +10,7 @@ export default async function Page() {
       <h2>Companies</h2>
       <div className="flext flex-wrap gap-5">
         {companies.map((company) => (
-          <Link href={"companies/$company.id"} key={company.id}>
+          <Link href={`companies/${company.id}`} key={company.id}>
             <h2>University of Nottingham</h2>
             <Image
               src={company.logo_url}
