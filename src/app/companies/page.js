@@ -8,7 +8,7 @@ export default async function Page() {
   return (
     <div className="flex flex-col justify-center">
       <h2>Companies</h2>
-      <div className="flext flex-wrap gap-5">
+      <div className="flex flex-wrap gap-5">
         {companies.map((company) => (
           <Link href={`companies/${company.id}`} key={company.id}>
             <h2>{company.name}</h2>
