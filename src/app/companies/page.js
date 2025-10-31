@@ -1,9 +1,15 @@
 import { db } from "../utils/utilities";
 import Link from "next/link";
 import Image from "next/image";
+import { auth } from "@clerk/nextjs/server";
 
 export default async function Page() {
   const companies = (await db.query(`SELECT * FROM companies`)).rows;
+  const { isAuthenticated, redirectToSignIn } = await auth();
+
+  if (isAuthenticated == false) {
+    redirectToSignIn();
+  }
 
   return (
     <div className="flex flex-col justify-center">
