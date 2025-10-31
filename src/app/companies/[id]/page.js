@@ -7,7 +7,11 @@ import { zalandoSemiExpanded } from "@/app/layout";
 
 export default async function Page({ params }) {
   const { id } = await params;
-  const { userId } = await auth();
+  const { isAuthenticated, redirectToSignIn, userId } = await auth();
+
+  if (isAuthenticated == false) {
+    redirectToSignIn();
+  }
 
   const company = (
     await db.query(`SELECT * FROM companies WHERE id = $1`, [id])
