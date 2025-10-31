@@ -12,23 +12,29 @@ export default async function Page() {
   }
 
   return (
-    <div className="flex flex-col justify-center">
-      <h2>Companies</h2>
-      <div className="flex flex-wrap gap-5">
+    <div className="flex flex-col items-center text-center mt-20 p-2">
+      <h2>
+        Every workplace has a story. Choose a company to see what employees are
+        saying.
+      </h2>
+      <div className="flex flex-wrap gap-5 mt-12 max-w-sm justify-center md:max-w-3xl">
         {companies.map((company) => (
-          <Link href={`companies/${company.id}`} key={company.id}>
-            <h2>{company.name}</h2>
+          <Link
+            href={`companies/${company.id}`}
+            key={company.id}
+            className="w-55 mx-2 my-2 p-2 shadow-md shadow-gray-400 border-ww-deep-blue border-2 rounded-md hover:scale-105"
+          >
             <Image
               src={company.logo_url}
               alt=""
               height={200}
               width={200}
-              className="p-4 hover:scale-105"
+              className="p-4"
             />
+            <h3 className="text-lg">{company.name}</h3>
           </Link>
         ))}
       </div>
-      <p>Logged out user cant see this info so authentication required</p>
     </div>
   );
 }

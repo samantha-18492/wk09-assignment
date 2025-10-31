@@ -1,11 +1,17 @@
 import Link from "next/link";
+import { zalandoSemiExpanded } from "./layout";
 
 export default function notFound() {
   return (
-    <div>
-      <h2>404 - Page Not Found</h2>
-      <p>That page doesnt exist Im afraid</p>
-      <Link href="/">Return to home</Link>
+    <div className="mt-20 text-center">
+      <h2>Oops! That page doesn&apos;t exist.</h2>
+      <p>Check back soon or return home.</p>
+      <Link
+        href="/"
+        className={`${zalandoSemiExpanded.className} bg-ww-deep-blue text-white rounded-full shadow-md shadow-gray-400 inline-block py-4 px-6 max-w-60 mt-10 hover:bg-ww-orange hover:text-black hover:font-bold`}
+      >
+        Home
+      </Link>
     </div>
   );
 }

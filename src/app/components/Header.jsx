@@ -8,18 +8,27 @@ export default function Header() {
       <nav
         className={`${zalandoSemiExpanded.className} w-full flex justify-center items-center p-10 flex-wrap bg-ww-grey`}
       >
-        <div className="flex items-center justify-center gap-4 md:gap-10 text-2xl md:text-4xl flex-wrap">
-          <Link href="/">WorkWise</Link>
-          <SignedIn>
-            <Link href="/companies">Companies</Link>
-          </SignedIn>
-          <Link href="/about-us">About</Link>
-        </div>
-        <div className="absolute right-4 flex items-center gap-3 text-md md:text-lg p-2 px-4 rounded-full bg-ww-light-blue">
-          <SignedIn>
-            <Link href="/users">Profile</Link>
-            <UserButton />
-          </SignedIn>
+        <div className="w-full max-w-7xl mx-auto flex items-center">
+          <div className="flex-1 flex items-center justify-center gap-4 md:gap-10 text-2xl md:text-5xl flex-wrap">
+            <Link href="/" className="">
+              <span className="text-ww-orange">Work</span>
+              <span className="text-ww-deep-blue">Wise</span>
+            </Link>
+            <SignedIn>
+              <Link href="/companies" className="text-xl">
+                Companies
+              </Link>
+            </SignedIn>
+            <Link href="/about-us" className="text-xl">
+              About
+            </Link>
+          </div>
+          <div className="flex-none flex items-center gap-3 md:text-lg p-2 px-4 rounded-full bg-ww-light-blue">
+            <SignedIn>
+              <Link href="/users">Profile</Link>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
       </nav>
     </header>

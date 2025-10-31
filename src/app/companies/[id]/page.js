@@ -3,6 +3,7 @@ import { db } from "@/app/utils/utilities";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { notFound } from "next/navigation";
+import { zalandoSemiExpanded } from "@/app/layout";
 
 export default async function Page({ params }) {
   const { id } = await params;
@@ -43,19 +44,61 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div>
+    <div className="max-w-sm md:max-w-3xl">
       <CompanyDetails company={company} />
-      <h2>What is it like to work at {company.name}?</h2>
-      {reviews.map((review) => (
-        <div key={review.id}>
-          <p>{review.username}</p>
-          <p>{review.content}</p>
-        </div>
-      ))}
-      <form action={handleSubmit}>
-        <h2>Tell others about your experience with {company.name}</h2>
-        <input name="content" placeholder="e.g. heres my review" required />
-        <button type="submit">Submit review</button>
+      <div className="rounded-md p-5 shadow-md shadow-gray-400 mt-15">
+        <h2 className={`${zalandoSemiExpanded.className} mb-2`}>
+          What&apos;s it like to work at {company.name}?
+        </h2>
+        <p className="text-sm md:text-md">
+          Find out what working at {company.name} is really like, from those who
+          know it best. All reviews are anonymous so contributors can share
+          honest insights.
+        </p>
+        {reviews.length === 0 ? (
+          <div className=" mt-5 bg-ww-grey p-2 rounded-sm shadow-gray-300 shadow-sm">
+            <p className=" text-sm text-center">
+              This company hasn&apos;t been reviewed yet. Start the conversation
+              using the form below.
+            </p>
+          </div>
+        ) : (
+          reviews.map((review) => (
+            <div
+              key={review.id}
+              className=" mt-5 bg-ww-grey p-2 rounded-sm shadow-gray-300 shadow-sm"
+            >
+              <p className="italic text-sm">&quot;{review.content}&quot;</p>
+            </div>
+          ))
+        )}
+      </div>
+      <form
+        action={handleSubmit}
+        className="rounded-md p-5 shadow-md shadow-gray-400 mt-10 flex flex-col items-center"
+      >
+        <h2 className={`${zalandoSemiExpanded.className} mb-2`}>
+          Share your experience at {company.name}
+        </h2>
+        <p className="text-sm md:text-md">
+          Your contribution helps future employees understand what life at{" "}
+          {company.name} is really like. Feel free to also share any tips for
+          future colleagues.
+        </p>
+        <textarea
+          name="content"
+          placeholder="Try to include insights about company
+          culture, your day-to-day experiences, and how the company supports
+          employee wellbeing. "
+          required
+          className="w-full min-h-70 mt-5 text-sm border-2 p-2"
+        />
+        <button
+          type="submit"
+          className={`${zalandoSemiExpanded.className} bg-ww-deep-blue text-white rounded-full shadow-md shadow-gray-400 py-2 px-6 max-w-40 mt-5 hover:bg-ww-orange hover:text-black hover:font-bold`}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );

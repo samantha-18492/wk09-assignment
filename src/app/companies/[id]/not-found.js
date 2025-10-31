@@ -1,17 +1,18 @@
 import Link from "next/link";
-import Image from "next/image";
+import { zalandoSemiExpanded } from "@/app/layout";
 
 export default function notFound() {
   return (
-    <div>
-      <p>That company isnt in our database yet</p>
-      <Link href="/companies">Return to company list</Link>
-      <Image
-        src="https://www.shutterstock.com/image-photo/grungy-out-business-sign-on-600nw-1839764254.jpg"
-        alt=""
-        height={404}
-        width={600}
-      />
+    <div className="mt-20 text-center">
+      <h2>We couldn&apos;t find that company.</h2>
+      <br />
+      <p>Check back soon or browse our existing listings.</p>
+      <Link
+        href="/companies"
+        className={`${zalandoSemiExpanded.className} bg-ww-deep-blue text-white rounded-full shadow-md shadow-gray-400 inline-block py-4 px-6 max-w-40 mt-10 hover:bg-ww-orange hover:text-black hover:font-bold`}
+      >
+        Browse
+      </Link>
     </div>
   );
 }

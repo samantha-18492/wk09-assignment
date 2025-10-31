@@ -4,8 +4,8 @@ import styles from "./page.css";
 
 export default function Page() {
   return (
-    <section className="flex flex-col items-center min-h-screen space-y-6 px-4 mt-20">
-      <div className="text-center max-w-3xl mb-15">
+    <section className="flex flex-col items-center min-h-screen space-y-6 px-4 mt-20 max-w-sm md:max-w-4xl">
+      <div className="text-center  mb-15">
         <p>
           WorkWise is a community-driven platform designed to bring honesty and
           transparency to the job search experience. We believe finding the
@@ -26,7 +26,7 @@ export default function Page() {
         <Accordion.Root
           type="single"
           collapsible
-          className="w-full max-w-[600px] rounded-md shadow-[0_2px_10px] shadow-black/5 items-center"
+          className="w-full rounded-md shadow-[0_2px_10px] shadow-black/5 items-center"
         >
           <Accordion.Item value="item-1">
             <Accordion.Trigger className="AccordionTrigger flex items-center justify-between w-full text-black  bg-ww-grey p-2 shadow-md">

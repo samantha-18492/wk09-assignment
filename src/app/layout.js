@@ -39,9 +39,11 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${zalando.className} text-xl antialiased`}>
+        <body className={`${zalando.className} text-xl antialiased mb-4`}>
           <Header />
-          <div className="flex justify-center min-h-screen">{children}</div>
+          <div className="flex justify-center min-h-screen text-lg md:text-xl">
+            {children}
+          </div>
         </body>
       </html>
     </ClerkProvider>
