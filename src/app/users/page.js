@@ -19,7 +19,12 @@ export default async function Page() {
 
   if (isNotInDB) {
     return (
-      <div>
+      <div className="mt-20 text-center max-w-sm md:max-w-4xl flex flex-col items-center">
+        <p>
+          Before you start exploring, please take a moment to complete your
+          profile using the form below. It helps personalise your experience and
+          connect your insights to your account.
+        </p>
         <UserSignUpForm />
       </div>
     );
