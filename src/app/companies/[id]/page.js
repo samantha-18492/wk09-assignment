@@ -56,8 +56,8 @@ export default async function Page({ params }) {
           honest insights.
         </p>
         {reviews.length === 0 ? (
-          <div className=" mt-5 bg-ww-grey p-2 rounded-sm shadow-gray-300 shadow-sm">
-            <p className=" text-sm text-center">
+          <div className="mt-5 bg-ww-grey p-2 rounded-sm shadow-gray-300 shadow-sm">
+            <p className="text-sm text-center">
               This company hasn&apos;t been reviewed yet. Start the conversation
               using the form below.
             </p>
