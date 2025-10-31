@@ -1,7 +1,34 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "./components/Header";
+import {
+  Geist,
+  Geist_Mono,
+  Zalando_Sans,
+  Zalando_Sans_SemiExpanded,
+} from "next/font/google";
+
+export const zalandoSemiExpanded = Zalando_Sans_SemiExpanded({
+  weight: "500",
+  subsets: ["latin"],
+  fallback: ["geistSans"],
+});
+
+const zalando = Zalando_Sans({
+  weight: "400",
+  subsets: ["latin"],
+  fallback: ["geistSans"],
+});
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +39,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`antialiased`}>
+        <body className={`${zalando.className} text-xl antialiased`}>
           <Header />
           <div className="flex justify-center min-h-screen">{children}</div>
         </body>
