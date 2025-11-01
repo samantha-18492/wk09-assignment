@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Problem domain: Finding a new job can be hard – from weighing up the right role and salary to choosing a location that works. But one crucial factor often gets overlooked: understanding whether the company itself is a good fit. Without access to honest insights into culture and employee experiences, it's difficult for job seekers to make confident, informed decisions about their careers.
 
-## Getting Started
+End goal: Create a web app where job seekers can log in, browse a list of predefined companies, and read or write honest reviews about what it's like to work for them.
 
-First, run the development server:
+Requirements:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Set up user sign-up and user login using Clerk.
+- Create and display an error/not found page if the user visits a page that doesn’t exist.
+- Use 1 or more Radix UI Primitive component, or something similar (e.g. use of a different component library to enhance UX, not just Tailwind).
+- Enable users to create a user profile, and input profile information (such as a user biography) using a form. Users and user information should be stored in their own table in the database and handled with an appropriate route.
+- Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
+- Allow users to update their content. You can achieve this either with a dynamic route (“/posts/[id]/edit”) or by creating a modal.
+- Allow users to delete their content.
+- Ensure that a user’s biography cannot be left blank. If a user logs in without one, prompt them to add this information.
+- Create and display an error/not found page if the user visits another [company] that doesn’t exist.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Wireframe:
+<img width="1462" height="722" alt="Image" src="https://github.com/user-attachments/assets/fe30b8e4-ab82-41ee-b41b-daffadf0e023" />
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Database schema:
+<img width="724" height="562" alt="Image" src="https://github.com/user-attachments/assets/bcb8a91e-8d18-4e4c-a44a-3a4d47b9fe17" />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Reflection:
+I really appreciated how simple and intuitive the Clerk system was to use. I;ve ensured all relevant pages include a redirectToSignIn route so that only authenticated users can access certain features. The only public pages are the home page and about page. I attempted to customise the appearance of the Clerk components using the provided documentation, but couldn’t get the changes to appear in development mode. I read that clearing the cache and restarting the terminal can sometimes resolve this, but since I still couldn’t view the updates, I decided to move on.
 
-## Learn More
+In addition to a general not-found page for routes that don’t exist, I created a custom not-found page for the /companies route. This displays when a company isn’t in the database and encourages users to return to the company listings instead of the homepage, which I think improves the user experience.
 
-To learn more about Next.js, take a look at the following resources:
+I was particularly pleased with how I implemented the UserSignUpForm component — using it for both new users and existing users editing their profiles. This approach kept the code cleaner and avoided unnecessary duplication.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I initially experimented with the Navigation Menu Radix primitive but found it difficult to integrate with Clerk’s SignedIn components. Instead, I decided to use the Accordion component on the About page to present the FAQ section. This felt like a more appropriate and achievable use of Radix UI within the project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For the user interface, I kept the design simple and professional, with limited colour use to highlight interactive elements such as buttons and links.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Overall, I really enjoyed building this week’s project. It helped me better understand how authentication systems integrate with databases and UI components. In future, I’d like to experiment with building a simplified version of a social network — similar to Facebook — to test my knowledge and challenge myself further.

@@ -15,8 +15,11 @@ export default async function Page() {
   ).rows[0];
 
   return (
-    <div>
-      <h2>Edit your profile</h2>
+    <div className="mt-15 max-w-sm md:max-w-4xl flex flex-col items-center">
+      <h2>
+        You’re editing your profile. Update your details below and click{" "}
+        <span className="font-bold">Save</span> to make your changes live.
+      </h2>
       <UserSignUpForm defaultValues={user} />
     </div>
   );

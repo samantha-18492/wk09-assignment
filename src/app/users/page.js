@@ -33,7 +33,7 @@ export default async function Page() {
 
   return (
     <div className="mt-15 max-w-sm md:max-w-4xl">
-      <div className="rounded-md w-sm md:w-md p-5 shadow-md shadow-gray-400 mt-10">
+      <div className="rounded-md w-sm md:w-4xl p-5 shadow-md shadow-gray-400 mt-10">
         <div className="flex justify-between items-center mb-4">
           <h2 className={`${zalandoSemiExpanded.className} mb-2`}>
             User profile

@@ -5,6 +5,7 @@ export default function notFound() {
   return (
     <div className="mt-20 text-center">
       <h2>Oops! That page doesn&apos;t exist.</h2>
+      <br />
       <p>
         Sometimes even the best career journeys hit a dead end. Return home to
         get back on track.

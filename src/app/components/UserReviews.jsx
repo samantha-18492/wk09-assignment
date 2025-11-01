@@ -45,7 +45,7 @@ export default async function UserReviews({ userId }) {
   }
 
   return (
-    <div className="rounded-md w-sm md:w-md p-5 shadow-md shadow-gray-400 mt-10">
+    <div className="rounded-md w-sm md:w-4xl p-5 shadow-md shadow-gray-400 mt-10">
       <h2 className={`${zalandoSemiExpanded.className} mb-2`}>Your reviews</h2>
       {reviews.map((review) => (
         <div

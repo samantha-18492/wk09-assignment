@@ -82,7 +82,7 @@ export default async function Page({ params }) {
         className="rounded-md p-5 shadow-md shadow-gray-400 mt-10 flex flex-col items-center"
       >
         <h2 className={`${zalandoSemiExpanded.className} mb-2`}>
-          Share your experience at {company.name}
+          Share your experience of {company.name}
         </h2>
         <p className="text-sm md:text-md">
           Your contribution helps future employees understand what life at{" "}
